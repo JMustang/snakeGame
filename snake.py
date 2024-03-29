@@ -2,7 +2,7 @@ import pygame, sys, time, random
 
 speed = 15
 
-# temanho da tela
+# Temanho da tela
 
 frame_size_x = 720
 frame_size_y = 480
@@ -27,3 +27,25 @@ white = pygame.Color(255, 255, 255)
 red = pygame.Color(255, 0, 0)
 green = pygame.Color(0, 255, 0)
 blue = pygame.Color(0, 0, 255)
+
+fps_controller = pygame.time.Clock()
+
+# Tamanho dos blocos
+square_size = 20
+
+# Coordenadas da cobra
+
+
+def init_vars():
+    global head_pos, snake_body, food_pos, food_spawn, score, direction
+    direction = "RIGHT"
+    head_pos = [120, 60]
+    snake_body = [[120, 60]]
+    food_pos = [
+        random.randrange(1, (frame_size_x // square_size)) * square_size,
+        random.randrange(1, (frame_size_y // square_size)) * square_size,
+    ]
+    food_spawn = True
+
+
+init_vars()
