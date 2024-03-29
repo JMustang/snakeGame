@@ -86,3 +86,21 @@ while True:
                 and direction != "LEFT"
             ):
                 direction = "RIGHT"
+
+    if direction == "UP":
+        head_pos[1] -= square_size
+    elif direction == "DOWN":
+        head_pos[1] += square_size
+    elif direction == "LEFT":
+        head_pos[0] -= square_size
+    else:
+        head_pos[0] += square_size
+
+    if head_pos[0] < 0:
+        head_pos[0] = frame_size_x - square_size
+    elif head_pos[0] > frame_size_x - square_size:
+        head_pos[0] = 0
+    elif head_pos[1] < 0:
+        head_pos[1] = frame_size_y - square_size
+    elif head_pos[1] > frame_size_y - square_size:
+        head_pos[1] = 0
