@@ -49,3 +49,40 @@ def init_vars():
 
 
 init_vars()
+
+
+def show_score():
+    print("Showing score")
+
+
+# Loop do jogo
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            if (
+                event.key == pygame.K_UP
+                or event.key == ord("w")
+                and direction != "DOWN"
+            ):
+                direction = "UP"
+            elif (
+                event.key == pygame.K_DOWN
+                or event.key == ord("s")
+                and direction != "UP"
+            ):
+                direction = "DOWN"
+            elif (
+                event.key == pygame.K_LEFT
+                or event.key == ord("a")
+                and direction != "RGHT"
+            ):
+                direction = "LEFT"
+            elif (
+                event.key == pygame.K_RIGHT
+                or event.key == ord("d")
+                and direction != "LEFT"
+            ):
+                direction = "RIGHT"
