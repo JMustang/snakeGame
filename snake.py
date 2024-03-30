@@ -1,6 +1,6 @@
 import pygame, sys, time, random
 
-speed = 15
+speed = 25
 
 # Temanho da tela
 
@@ -31,7 +31,7 @@ blue = pygame.Color(0, 0, 255)
 fps_controller = pygame.time.Clock()
 
 # Tamanho dos blocos
-square_size = 20
+square_size = 30
 
 # Coordenadas da cobra
 
@@ -127,6 +127,7 @@ while True:
             random.randrange(1, (frame_size_x // square_size)) * square_size,
             random.randrange(1, (frame_size_y // square_size)) * square_size,
         ]
+        food_spawn = True
 
     # GFX
     game_window.fill(black)
