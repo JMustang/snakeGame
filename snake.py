@@ -46,6 +46,7 @@ def init_vars():
         random.randrange(1, (frame_size_y // square_size)) * square_size,
     ]
     food_spawn = True
+    score = 0
 
 
 init_vars()
@@ -104,3 +105,11 @@ while True:
         head_pos[1] = frame_size_y - square_size
     elif head_pos[1] > frame_size_y - square_size:
         head_pos[1] = 0
+
+    # Comendo macao
+    snake_body.insert(0, list(head_pos))
+    if head_pos[0] == food_pos[0] and head_pos[1] == food_pos[1]:
+        score += 1
+        food_spawn = False
+    else:
+        snake_body.pop()
