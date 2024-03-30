@@ -52,8 +52,15 @@ def init_vars():
 init_vars()
 
 
-def show_score():
-    print("Showing score")
+def show_score(choice, color, font, size):
+    score_font = pygame.font.SysFont(font, size)
+    score_surface = score_font.render("Score : " + str(score), True, color)
+    score_rect = score_surface.get_rect()
+    if choice == 1:
+        score_rect.midtop = (frame_size_x / 10, 15)
+    else:
+        score_rect.midtop = (frame_size_x / 2, frame_size_y / 1.25)
+    game_window.blit(score_surface, score_rect)
 
 
 # Loop do jogo
@@ -135,3 +142,12 @@ while True:
         red,
         pygame.Rect(food_pos[0], food_pos[1], square_size, square_size),
     )
+
+    # Game Over
+    for block in snake_body[1:]:
+        if head_pos[0] == block[0] and head_pos[1] == block[1]:
+            init_vars()
+
+    show_score(1, white, "consolas", 20)
+    pygame.display.update()
+    fps_controller.tick(speed)
